@@ -1,5 +1,5 @@
 import { NestFactory } from '@nestjs/core';
-import { MessagesModule } from './messages.module';
+import { MessagesModule } from './messages/messages.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(MessagesModule);
