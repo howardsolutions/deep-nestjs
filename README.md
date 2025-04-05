@@ -23,6 +23,8 @@
 
 ## Dependency Injection Flow
 
+Dependency Injection is all about making use of inversion of control BUT not having to create a ton of different classes or a ton of different instances EVERY SINGLE TIME you want a controller.
+
 1. At startup, register all classes with the container.
 2. Container will figure out what each dependency each class has.
 3. We then ask the container to create an Instance of class for us.
