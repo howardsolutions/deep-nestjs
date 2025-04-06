@@ -30,3 +30,10 @@ Dependency Injection is all about making use of inversion of control BUT not hav
 3. We then ask the container to create an Instance of class for us.
 4. Container creates all required dependencies and give us the instance.
 5. Container will hold onto the created dependency instances and reuse them if needed.
+
+## Used Car Pricing API
+ 
+- Users sign up with email / password 
+- Users get an ESTIMATE for how much their car is worth based on the make / model / year / mileage 
+- Users can report what they sold their vehicles for 
+- Admins have to approve reported sales
