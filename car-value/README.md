@@ -20,3 +20,11 @@
   5. Approve or reject a report submitted   PATCH /reports                      BODY - {approved: boolean} 
   by user (for admin)
 ```
+
+### Turn APIs into NestJs module 
+
+```js 
+  CONTROLLER                         SERVICES                         REPOSITORIES
+  UserController                      UserService                     UserRepositories         => UserModule 
+  ReportController                    ReportService                   ReportRepositories       => Report Module
+``` 
