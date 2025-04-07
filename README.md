@@ -54,4 +54,10 @@ app.useGlobalPipes(
 );
 ```
 
-- `whiteList: true` - to make sure any additional properties (not defined in the DTO) that we send along with the request will be stripped out for us automatically
+- `whiteList: true` - to make sure any additional properties (not defined in the DTO) that we send along with the request will be stripped out for us automatically'
+
+### TypeORM Gotchas
+
+- If we SAVE an entity instances all HOOKS tided to that entity instance will be executed. => Get data validation.
+
+- If we passed in plain object => NO hooks will be executed whatsoever -> skip data validation => bugs!!!
