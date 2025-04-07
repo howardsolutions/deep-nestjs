@@ -12,6 +12,7 @@ export class UsersService {
 
         return this.repository.save(user);
     }
+
     findOne(id: number) {
         return this.repository.findOne({ where: { id } });
     }
@@ -19,7 +20,18 @@ export class UsersService {
     find(email: string) {
         return this.repository.find({ where: { email } });
     }
-    update() { }
+
+    async update(id: number, attributes: Partial<User>) {
+        const user = await this.findOne(id);
+        
+        if (!user) {
+            throw new Error("user not found")
+        }
+        
+        Object.assign(user, attributes);
+
+        return this.repository.save(user);
+    }
 
     remove() { }
 }
