@@ -37,3 +37,9 @@ Dependency Injection is all about making use of inversion of control BUT not hav
 - Users get an ESTIMATE for how much their car is worth based on the make / model / year / mileage 
 - Users can report what they sold their vehicles for 
 - Admins have to approve reported sales
+
+## Creating an Entity 
+
+- Create an entity file, and create a class in it that lists all the properties that your entity will have.
+- Connect the entity to its parent module. => This creates a repository.
+- Connect the entity to the root connection (in app module)
