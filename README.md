@@ -19,7 +19,7 @@
 
 ## Inversion of Control
 
-- Classes should NOT create instances of ITS dependencies on its own. 
+- Classes should NOT create instances of ITS dependencies on its own.
 
 ## Dependency Injection Flow
 
@@ -32,14 +32,26 @@ Dependency Injection is all about making use of inversion of control BUT not hav
 5. Container will hold onto the created dependency instances and reuse them if needed.
 
 ## Used Car Pricing API
- 
-- Users sign up with email / password 
-- Users get an ESTIMATE for how much their car is worth based on the make / model / year / mileage 
-- Users can report what they sold their vehicles for 
+
+- Users sign up with email / password
+- Users get an ESTIMATE for how much their car is worth based on the make / model / year / mileage
+- Users can report what they sold their vehicles for
 - Admins have to approve reported sales
 
-## Creating an Entity 
+## Creating an Entity
 
 - Create an entity file, and create a class in it that lists all the properties that your entity will have.
 - Connect the entity to its parent module. => This creates a repository.
 - Connect the entity to the root connection (in app module)
+
+### Setting up body validation
+
+```js
+app.useGlobalPipes(
+  new ValidationPipe({
+    whitelist: true,
+  })
+);
+```
+
+- `whiteList: true` - to make sure any additional properties (not defined in the DTO) that we send along with the request will be stripped out for us automatically
