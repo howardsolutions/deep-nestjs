@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post, Query } from '@nestjs/common';
+import { Body, Controller, Delete, Get, NotFoundException, Param, Patch, Post, Query } from '@nestjs/common';
 import { CreateUserDto } from './dtos/create-user.dto';
 import { UsersService } from './users.service';
 import { UpdateUserDto } from './dtos/update-user.dto';
@@ -24,11 +24,19 @@ export class UsersController {
 
     @Delete("/:id")
     deleteUser(@Param('id') id: string) {
-        return this.userService.remove(parseInt(id));
+        const user = this.userService.remove(parseInt(id));
+        if (!user) {
+            throw new NotFoundException("User not found");
+        }
+        return user;
     }
 
     @Patch("/:id")
     updateUser(@Param('id') id: string, @Body() body: UpdateUserDto) {
-        return this.userService.update(parseInt(id), body);
+        const user = this.userService.update(parseInt(id), body);
+        if (!user) {
+            throw new NotFoundException("User not found");
+        }
+        return user;
     }
 }
