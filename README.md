@@ -61,3 +61,10 @@ app.useGlobalPipes(
 - If we SAVE an entity instances all HOOKS tided to that entity instance will be executed. => Get data validation.
 
 - If we passed in plain object => NO hooks will be executed whatsoever -> skip data validation => bugs!!!
+
+## Custom Data Serialization 
+
+### Custom Interceptors
+- Interceptors CAN be used to intercept OUTGOING responses and / or INCOMING REQUESTS
+- SIMILAR to "middleware", we could have many of interceptors as we wanted.
+- Interceptors CAN be applied to A SINGLE HANDLER, all the handlers in a CONTROLLER OR GLOBALLY 
