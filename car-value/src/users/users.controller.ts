@@ -5,6 +5,7 @@ import { UpdateUserDto } from './dtos/update-user.dto';
 import { UsersService } from './users.service';
 import { UserDto } from './dtos/user.dto.';
 import { AuthService } from 'src/auth.service';
+import { CurrentUser } from './decorators/current-user.decorator';
 
 @Controller('auth')
 @Serialize(UserDto)
@@ -12,9 +13,14 @@ export class UsersController {
     constructor(private userService: UsersService, private authService: AuthService) { }
 
 
+    // @Get('/whoami')
+    // whoAmI(@Session() session: any) {
+    //     return this.userService.findOne(session.userId);
+    // }
+
     @Get('/whoami')
-    whoAmI(@Session() session: any) {
-        return this.userService.findOne(session.userId);
+    whoAmI(@CurrentUser() user: any) {
+        console.log(user)
     }
 
     @Post("/signup")
